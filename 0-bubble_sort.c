@@ -11,6 +11,7 @@ void bubble_sort(int *array, size_t size)
 {
 	int temp;
 	size_t i, j;
+	bool isSorted;
 
 	if (array == NULL || size < 2)
 		return;
@@ -25,7 +26,10 @@ void bubble_sort(int *array, size_t size)
 				array[i] = array[j];
 				array[j] = temp;
 				print_array(array, size);
+				isSorted = true;
 			}
 		}
+		if (!isSorted)
+			return;
 	}
 }
