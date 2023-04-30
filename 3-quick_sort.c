@@ -2,6 +2,7 @@
 
 void quickSort(int *array, size_t size, int start, int end);
 int pivot_partition(int *array, size_t size, int start, int end);
+void swap(int *a, int *b);
 
 /**
  * quick_sort - sorts an array in ascending order
@@ -57,17 +58,29 @@ int pivot_partition(int *array, size_t size, int start, int end)
 		if (array[j] < pivot)
 		{
 			i++;
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
+			swap(&array[i], &array[j]);
 			print_array(array, size);
 		}
 	}
 	i++;
-	temp = array[i];
-	array[i] = array[end];
-	array[end] = temp;
+	swap(&array[i], &array[end]);
+	print_array(array, size);
 
 	return (i);
 
+}
+
+/**
+ * swap - swaps two integers
+ * @a: first integer
+ * @b: second integer
+ * Return: nothing
+ */
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
