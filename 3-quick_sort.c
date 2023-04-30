@@ -12,6 +12,8 @@ int pivot_partition(int *array, size_t size, int start, int end);
  */
 void quick_sort(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	quickSort(array, size, 0, size - 1);
 }
 
