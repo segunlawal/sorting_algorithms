@@ -21,14 +21,17 @@ void bubble_sort(int *array, size_t size)
 		isSorted = false;
 		for (j = i + 1; j < size; j++)
 		{
+			hasSwapped = false;
 			if (array[j] < array[i])
 			{
 				temp = array[i];
 				array[i] = array[j];
 				array[j] = temp;
-				print_array(array, size);
+				hasSwapped = true;
 				isSorted = true;
 			}
+			if (hasSwapped)
+				print_array(array, size);
 		}
 		if (!isSorted)
 			return;
